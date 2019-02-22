@@ -1,2 +1,5 @@
 # Packer builds
 output-qemu/
+
+# Ansible
+*.retry
