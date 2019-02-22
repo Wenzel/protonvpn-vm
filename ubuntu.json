@@ -45,6 +45,12 @@
             ]
         }
     ],
+    "provisioners": [
+        {
+            "type": "ansible",
+            "playbook_file": "./ansible/site.yml"
+        }
+    ],
     "variables": {
         "cpus": "1",
         "desktop": "false",

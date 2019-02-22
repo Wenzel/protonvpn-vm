@@ -1,0 +1,14 @@
+- name: perform system upgrade
+  apt:
+    upgrade: dist
+    autoremove: yes
+    force_apt_get: yes
+
+- name: install useful tools
+  package:
+    name: "{{ item }}"
+  with_items:
+    - git
+    - htop
+    - vim
+    - wget

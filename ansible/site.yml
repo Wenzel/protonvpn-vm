@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: true
+  gather_facts: false
+  pre_tasks:
+    - name: install Python2
+      raw: sudo apt-get -y install python
+
+    - name: gather facts
+      setup:
+  roles:
+    - system
+    - openvpn
