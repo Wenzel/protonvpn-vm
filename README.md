@@ -38,6 +38,8 @@ If you need a more up-to-date version, use `virtualenv`:
     source venv/bin/activate
     (venv) pip install ansible
 
+**Edit** `config.yml` and replace the variables with your ProtonVPN credentials
+
 
 Build the vm
 
