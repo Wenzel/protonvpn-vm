@@ -3,3 +3,4 @@ output-qemu/
 
 # Ansible
 *.retry
+config.yml
