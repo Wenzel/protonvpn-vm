@@ -18,10 +18,10 @@
 
 This repo preconfigures your ProtonVPN account in a virtual machine.
 
-- no configuration: all ProtonVPN's servers are configured with your credentials (single server/country/secure core)
-- safety: if the VM's VPN link goes down, your trafic is automatically blocked
+- **no configuration**: all ProtonVPN's servers are configured with your credentials (single server/country/secure core)
+- **safety**: if the VM's VPN link goes down, your trafic is automatically blocked
   until the link goes back online
-- privacy: randomize your internet trafic on multiple servers at the same time
+- **privacy**: randomize your internet trafic on multiple servers at the same time
 
 ## Requirements
 
