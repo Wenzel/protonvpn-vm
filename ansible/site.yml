@@ -1,7 +1,9 @@
 ---
 - hosts: all
-  become: true
+  become: false
   gather_facts: false
+  vars_files:
+    - ../config.yml
   pre_tasks:
     - name: install Python2
       raw: sudo apt-get -y install python
@@ -10,3 +12,4 @@
       setup:
   roles:
     - system
+    - openvpn

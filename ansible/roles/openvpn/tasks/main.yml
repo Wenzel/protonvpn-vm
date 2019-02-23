@@ -1,0 +1,33 @@
+- name: install OpenVPN
+  package:
+    name: "{{ item }}"
+  with_items:
+    - openvpn
+    - resolvconf
+  become: yes
+
+- name: write credential config file
+  copy:
+    dest: "{{ ansible_env.HOME}}/.ovpncreds"
+    content: |
+      {{ vpn_username }}
+      {{ vpn_password }}
+    mode: 0600
+
+- name: upload config files
+  copy:
+    src: files/configs
+    dest: "{{ ansible_env.HOME }}/"
+
+- name: enumerate config files
+  find:
+    path: "{{ ansible_env.HOME }}/configs"
+    recurse: yes
+  register: config_files
+
+- name: update config files to use credentials from file
+  lineinfile:
+    path: "{{ item.path }}"
+    regexp: 'auth-user-pass'
+    line: "auth-user-pass {{ ansible_env.HOME }}/.ovpncreds"
+  with_items: "{{ config_files.files }}"
