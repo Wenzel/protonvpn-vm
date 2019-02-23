@@ -16,14 +16,12 @@
 
 ## Overview
 
-This VM comes with all ProtonVPN servers configuration installed and preconfigured
-with your account in an easy to deploy virtual machine.
+This repo preconfigures your ProtonVPN account in a virtual machine.
 
-Server configuration files installed (`TCP`/`UDP`):
-
-- country
-- Secure Core
-- single server
+- no configuration: all ProtonVPN's servers are configured with your credentials (single server/country/secure core)
+- safety: if the VM's VPN link goes down, your trafic is automatically blocked
+  until the link goes back online
+- privacy: randomize your internet trafic on multiple servers at the same time
 
 ## Requirements
 
@@ -44,6 +42,20 @@ If you need a more up-to-date version, use `virtualenv`:
 Build the vm
 
     packer build -var-file ubuntu-bionic.json ubuntu.json
+
+
+Log into the VM with the credentials `vagrant/vagrant`
+
+
+Connect to an `OpenVPN` server:
+
+    sudo openvpn configs/udp/country/ch.protonvpn.com.udp.ovpn
+
+## TODO
+
+How to redirect host trafic to the VM ?
+
+https://github.com/Wenzel/protonvpn-vm/issues/5
 
 ## Maintainers
 
